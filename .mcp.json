@@ -1,9 +1,107 @@
 {
   "name": "vector-knowledge-graph-mcp",
-  "description": "Vector Knowledge Graph MCP Server by MEOK AI Labs",
+  "description": "By **MEOK AI Labs** | https://meok.ai",
   "version": "1.0.0",
-  "author": "MEOK AI Labs",
-  "license": "MIT",
-  "repository": "https://github.com/CSOAI-ORG/vector-knowledge-graph-mcp",
-  "install": "pip install mcp && python server.py"
+  "tools": [
+    {
+      "name": "add_node",
+      "description": "",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "properties": {
+            "type": "object"
+          },
+          "node_id": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "label",
+          "properties"
+        ]
+      }
+    },
+    {
+      "name": "add_edge",
+      "description": "",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "from_id": {
+            "type": "string"
+          },
+          "to_id": {
+            "type": "string"
+          },
+          "relation": {
+            "type": "string"
+          },
+          "weight": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "from_id",
+          "to_id",
+          "relation"
+        ]
+      }
+    },
+    {
+      "name": "semantic_node_search",
+      "description": "",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string"
+          },
+          "top_k": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "query"
+        ]
+      }
+    },
+    {
+      "name": "trace_compliance_chain",
+      "description": "",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "start_node_id": {
+            "type": "string"
+          },
+          "max_depth": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "start_node_id"
+        ]
+      }
+    },
+    {
+      "name": "find_gaps",
+      "description": "",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "required_frameworks": {
+            "type": "array"
+          }
+        },
+        "required": [
+          "required_frameworks"
+        ]
+      }
+    }
+  ]
 }

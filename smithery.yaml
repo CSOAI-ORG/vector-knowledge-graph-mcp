@@ -1,9 +1,55 @@
-author: MEOK AI Labs
-description: Vector Knowledge Graph MCP Server
-license: MIT
 name: vector-knowledge-graph-mcp
-repository: https://github.com/CSOAI-ORG/vector-knowledge-graph-mcp
-tools:
-- description: See server.py
-  name: tool
+description: By **MEOK AI Labs** | https://meok.ai
 version: 1.0.0
+tools:
+- name: add_node
+  description: ''
+  parameters:
+  - name: label
+    type: string
+    required: true
+  - name: properties
+    type: object
+    required: true
+  - name: node_id
+    type: string
+    required: false
+- name: add_edge
+  description: ''
+  parameters:
+  - name: from_id
+    type: string
+    required: true
+  - name: to_id
+    type: string
+    required: true
+  - name: relation
+    type: string
+    required: true
+  - name: weight
+    type: number
+    required: false
+- name: semantic_node_search
+  description: ''
+  parameters:
+  - name: query
+    type: string
+    required: true
+  - name: top_k
+    type: integer
+    required: false
+- name: trace_compliance_chain
+  description: ''
+  parameters:
+  - name: start_node_id
+    type: string
+    required: true
+  - name: max_depth
+    type: integer
+    required: false
+- name: find_gaps
+  description: ''
+  parameters:
+  - name: required_frameworks
+    type: array
+    required: true

@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 """Vector Knowledge Graph MCP Server — Neo4j-style graph + vector hybrid for compliance reasoning."""
+
+import sys, os
+sys.path.insert(0, os.path.expanduser('~/clawd/meok-labs-engine/shared'))
+from auth_middleware import check_access
+
 import json, hashlib
 from typing import List, Optional
 from mcp.server.fastmcp import FastMCP
@@ -17,28 +22,44 @@ def _cosine(a, b):
     return dot / ((sum(x*x for x in a)**0.5 * sum(y*y for y in b)**0.5) + 1e-9)
 
 @mcp.tool(name="add_node")
-async def add_node(label: str, properties: dict, node_id: Optional[str] = None) -> str:
+async def add_node(label: str, properties: dict, node_id: Optional[str] = None, api_key: str = "") -> str:
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     nid = node_id or hashlib.md5(label.encode()).hexdigest()[:12]
     _NODES[nid] = {"label": label, "properties": properties, "embedding": _embed(label + " " + json.dumps(properties))}
-    return json.dumps({"node_id": nid, "created": True})
+    return {"node_id": nid, "created": True}
 
 @mcp.tool(name="add_edge")
-async def add_edge(from_id: str, to_id: str, relation: str, weight: float = 1.0) -> str:
+async def add_edge(from_id: str, to_id: str, relation: str, weight: float = 1.0, api_key: str = "") -> str:
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     _EDGES.append({"from": from_id, "to": to_id, "relation": relation, "weight": weight})
-    return json.dumps({"edge_created": True, "relation": relation})
+    return {"edge_created": True, "relation": relation}
 
 @mcp.tool(name="semantic_node_search")
-async def semantic_node_search(query: str, top_k: int = 5) -> str:
+async def semantic_node_search(query: str, top_k: int = 5, api_key: str = "") -> str:
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     q_vec = _embed(query)
     results = []
     for nid, node in _NODES.items():
         score = _cosine(q_vec, node["embedding"])
         results.append({"node_id": nid, "score": round(score, 4), "label": node["label"]})
     results.sort(key=lambda x: x["score"], reverse=True)
-    return json.dumps({"results": results[:top_k]})
+    return {"results": results[:top_k]}
 
 @mcp.tool(name="trace_compliance_chain")
-async def trace_compliance_chain(start_node_id: str, max_depth: int = 3) -> str:
+async def trace_compliance_chain(start_node_id: str, max_depth: int = 3, api_key: str = "") -> str:
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     visited = set()
     paths = []
     def dfs(node, depth, path):
@@ -51,17 +72,21 @@ async def trace_compliance_chain(start_node_id: str, max_depth: int = 3) -> str:
         if path:
             paths.append({"from": start_node_id, "path": path})
     dfs(start_node_id, 0, [])
-    return json.dumps({"start": start_node_id, "paths": paths})
+    return {"start": start_node_id, "paths": paths}
 
 @mcp.tool(name="find_gaps")
-async def find_gaps(required_frameworks: list) -> str:
+async def find_gaps(required_frameworks: list, api_key: str = "") -> str:
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     present = set()
     for node in _NODES.values():
         for fw in required_frameworks:
             if fw.lower() in node["label"].lower():
                 present.add(fw)
     missing = [fw for fw in required_frameworks if fw not in present]
-    return json.dumps({"present": list(present), "missing": missing, "coverage": round(len(present)/len(required_frameworks)*100,1) if required_frameworks else 100})
+    return {"present": list(present), "missing": missing, "coverage": round(len(present)/len(required_frameworks)*100,1) if required_frameworks else 100}
 
 if __name__ == "__main__":
     mcp.run()
