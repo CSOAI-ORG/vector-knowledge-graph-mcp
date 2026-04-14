@@ -1,0 +1,9 @@
+author: MEOK AI Labs
+description: Vector Knowledge Graph MCP Server
+license: MIT
+name: vector-knowledge-graph-mcp
+repository: https://github.com/CSOAI-ORG/vector-knowledge-graph-mcp
+tools:
+- description: See server.py
+  name: tool
+version: 1.0.0

@@ -1,0 +1,19 @@
+{
+  "name": "vector-knowledge-graph-mcp",
+  "version": "1.0.0",
+  "description": "Vector Knowledge Graph MCP Server by MEOK AI Labs",
+  "main": "server.py",
+  "scripts": {
+    "start": "python server.py"
+  },
+  "keywords": [
+    "mcp",
+    "ai",
+    "meok"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CSOAI-ORG/vector-knowledge-graph-mcp"
+  }
+}
