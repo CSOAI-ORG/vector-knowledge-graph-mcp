@@ -5,7 +5,7 @@
   "tools": [
     {
       "name": "add_node",
-      "description": "",
+      "description": "Add a node to the knowledge graph with properties, embeddings, and metadata.",
       "parameters": {
         "type": "object",
         "properties": {
@@ -27,7 +27,7 @@
     },
     {
       "name": "add_edge",
-      "description": "",
+      "description": "Create a directed edge between two nodes with relationship type and weight.",
       "parameters": {
         "type": "object",
         "properties": {
@@ -53,7 +53,7 @@
     },
     {
       "name": "semantic_node_search",
-      "description": "",
+      "description": "Search for nodes using semantic similarity matching against stored embeddings.",
       "parameters": {
         "type": "object",
         "properties": {
@@ -71,7 +71,7 @@
     },
     {
       "name": "trace_compliance_chain",
-      "description": "",
+      "description": "Trace the compliance chain from a requirement through controls to evidence.",
       "parameters": {
         "type": "object",
         "properties": {
@@ -89,7 +89,7 @@
     },
     {
       "name": "find_gaps",
-      "description": "",
+      "description": "Find gaps in the knowledge graph where expected relationships or nodes are missing.",
       "parameters": {
         "type": "object",
         "properties": {

@@ -3,7 +3,8 @@ description: MEOK AI Labs MCP Server
 version: 1.0.0
 tools:
 - name: add_node
-  description: ''
+  description: Add a node to the knowledge graph with properties, embeddings, and
+    metadata.
   parameters:
   - name: label
     type: string
@@ -15,7 +16,8 @@ tools:
     type: string
     required: false
 - name: add_edge
-  description: ''
+  description: Create a directed edge between two nodes with relationship type and
+    weight.
   parameters:
   - name: from_id
     type: string
@@ -30,7 +32,8 @@ tools:
     type: number
     required: false
 - name: semantic_node_search
-  description: ''
+  description: Search for nodes using semantic similarity matching against stored
+    embeddings.
   parameters:
   - name: query
     type: string
@@ -39,7 +42,7 @@ tools:
     type: integer
     required: false
 - name: trace_compliance_chain
-  description: ''
+  description: Trace the compliance chain from a requirement through controls to evidence.
   parameters:
   - name: start_node_id
     type: string
@@ -48,7 +51,8 @@ tools:
     type: integer
     required: false
 - name: find_gaps
-  description: ''
+  description: Find gaps in the knowledge graph where expected relationships or nodes
+    are missing.
   parameters:
   - name: required_frameworks
     type: array

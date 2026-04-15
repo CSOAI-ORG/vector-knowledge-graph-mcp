@@ -34,6 +34,7 @@ def _cosine(a, b):
 
 @mcp.tool()
 def add_node(label: str, properties: dict, node_id: Optional[str] = None, api_key: str = "") -> str:
+    """Add a node to the knowledge graph with properties, embeddings, and metadata."""
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -45,6 +46,7 @@ def add_node(label: str, properties: dict, node_id: Optional[str] = None, api_ke
 
 @mcp.tool()
 def add_edge(from_id: str, to_id: str, relation: str, weight: float = 1.0, api_key: str = "") -> str:
+    """Create a directed edge between two nodes with relationship type and weight."""
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -55,6 +57,7 @@ def add_edge(from_id: str, to_id: str, relation: str, weight: float = 1.0, api_k
 
 @mcp.tool()
 def semantic_node_search(query: str, top_k: int = 5, api_key: str = "") -> str:
+    """Search for nodes using semantic similarity matching against stored embeddings."""
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -70,6 +73,7 @@ def semantic_node_search(query: str, top_k: int = 5, api_key: str = "") -> str:
 
 @mcp.tool()
 def trace_compliance_chain(start_node_id: str, max_depth: int = 3, api_key: str = "") -> str:
+    """Trace the compliance chain from a requirement through controls to evidence."""
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -91,6 +95,7 @@ def trace_compliance_chain(start_node_id: str, max_depth: int = 3, api_key: str 
 
 @mcp.tool()
 def find_gaps(required_frameworks: list, api_key: str = "") -> str:
+    """Find gaps in the knowledge graph where expected relationships or nodes are missing."""
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
