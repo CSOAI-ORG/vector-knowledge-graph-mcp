@@ -1,5 +1,6 @@
 name: vector-knowledge-graph-mcp
-description: MEOK AI Labs MCP Server
+description: AI-powered vector knowledge graph MCP server for agents. Supports add
+  node, add edge, semantic node search. By MEOK AI Labs.
 version: 1.0.0
 tools:
 - name: add_node

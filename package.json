@@ -1,7 +1,7 @@
 {
   "name": "vector-knowledge-graph-mcp",
   "version": "1.0.0",
-  "description": "Vector Knowledge Graph MCP Server by MEOK AI Labs",
+  "description": "AI-powered vector knowledge graph MCP server for agents. Supports add node, add edge, semantic node search. By MEOK AI Labs.",
   "main": "server.py",
   "scripts": {
     "start": "python server.py"
