@@ -1,6 +1,6 @@
 {
   "name": "vector-knowledge-graph-mcp",
-  "description": "By **MEOK AI Labs** | https://meok.ai",
+  "description": "> **By [MEOK AI Labs](https://meok.ai)** \u2014 Sovereign AI tools for everyone.",
   "version": "1.0.0",
   "tools": [
     {
@@ -16,8 +16,7 @@
             "type": "object"
           },
           "node_id": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         },
         "required": [

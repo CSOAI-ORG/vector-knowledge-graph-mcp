@@ -1,5 +1,5 @@
 name: vector-knowledge-graph-mcp
-description: By **MEOK AI Labs** | https://meok.ai
+description: MEOK AI Labs MCP Server
 version: 1.0.0
 tools:
 - name: add_node
