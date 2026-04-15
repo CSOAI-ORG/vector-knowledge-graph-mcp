@@ -1,0 +1,10 @@
+{
+  "name": "vector-knowledge-graph-mcp",
+  "description": "MEOK AI Labs \u2014 vector-knowledge-graph-mcp",
+  "vendor": "MEOK AI Labs",
+  "homepage": "https://meok.ai",
+  "repository": "https://github.com/CSOAI-ORG/vector-knowledge-graph-mcp",
+  "license": "MIT",
+  "runtime": "python",
+  "entryPoint": "mcp-wrapper.py"
+}
