@@ -1,0 +1,56 @@
+{
+  "name": "vector-knowledge-graph",
+  "description": "Vector Knowledge Graph tools powered by MEOK AI Labs.",
+  "version": "1.0.0",
+  "protocol_version": "2025-11-25",
+  "publisher": {
+    "name": "MEOK AI Labs",
+    "url": "https://meok.ai",
+    "email": "nicholas@meok.ai"
+  },
+  "repository": "https://github.com/CSOAI-ORG/vector-knowledge-graph-mcp",
+  "license": "MIT",
+  "transport": [
+    "stdio",
+    "streamable-http"
+  ],
+  "authentication": {
+    "type": "api-key",
+    "free_tier": true,
+    "free_limit": "15 calls/day"
+  },
+  "tools": [
+    {
+      "name": "add_node",
+      "description": "Add a node to the knowledge graph with properties, embeddings, and metadata."
+    },
+    {
+      "name": "add_edge",
+      "description": "Create a directed edge between two nodes with relationship type and weight."
+    },
+    {
+      "name": "semantic_node_search",
+      "description": "Search for nodes using semantic similarity matching against stored embeddings."
+    },
+    {
+      "name": "trace_compliance_chain",
+      "description": "Trace the compliance chain from a requirement through controls to evidence."
+    },
+    {
+      "name": "find_gaps",
+      "description": "Find gaps in the knowledge graph where expected relationships or nodes are missing."
+    }
+  ],
+  "categories": [
+    "AI & Machine Learning"
+  ],
+  "pricing": {
+    "free": {
+      "calls_per_day": 15
+    },
+    "pro": {
+      "price": "$29/month",
+      "url": "https://meok.ai/pricing"
+    }
+  }
+}
