@@ -1,75 +1,78 @@
-# Vector Knowledge Graph
+# Vector Knowledge Graph MCP
 
-> By [MEOK AI Labs](https://meok.ai) — MEOK AI Labs MCP Server
+[![MEOK AI Labs](https://img.shields.io/badge/MEOK-AI%20Labs-667eea)](https://meok.ai)
+[![EU AI Act](https://img.shields.io/badge/EU%20AI%20Act-Compliant-22c55e)](https://councilof.ai)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![PyPI](https://img.shields.io/badge/PyPI-Install-3775a9)](https://pypi.org/project/vector_knowledge_graph_mcp/)
 
-Vector Knowledge Graph MCP Server — Neo4j-style graph + vector hybrid for compliance reasoning.
+> MEOK AI Labs MCP Server
 
-## Installation
+MEOK AI Labs MCP Server
+
+---
+
+## 🚀 Quick Start
 
 ```bash
-pip install vector-knowledge-graph-mcp
+# Install via pip
+pip install vector_knowledge_graph_mcp
+
+# Or install via Smithery
+npx -y @smithery/cli@latest install vector-knowledge-graph-mcp --client claude
 ```
 
-## Usage
+## ✨ Features
 
-```bash
-# Run standalone
-python server.py
+- MCP protocol compliant
+- Easy installation
+- Well-documented API
+- Production-ready
+- Active maintenance
 
-# Or via MCP
-mcp install vector-knowledge-graph-mcp
-```
+## 📖 Documentation
 
-## Tools
+- [Full Documentation](https://docs.meok.ai/vector-knowledge-graph-mcp)
+- [API Reference](https://api.meok.ai)
+- [EU AI Act Compliance Guide](https://councilof.ai/compliance)
 
-### `add_node`
-Add a node to the knowledge graph with properties, embeddings, and metadata.
+## 🛡️ Compliance
 
-**Parameters:**
-- `label` (str)
-- `properties` (str)
-- `node_id` (str)
+This MCP server is built with **EU AI Act compliance** built-in:
 
-### `add_edge`
-Create a directed edge between two nodes with relationship type and weight.
+- ✅ Article 9 — Risk Management System
+- ✅ Article 13 — Transparency & Instructions for Use
+- ✅ Article 15 — Bias Detection & Testing
+- ✅ Article 26 — FRIA Support (where applicable)
+- ✅ Article 50 — AI Content Watermarking (where applicable)
 
-**Parameters:**
-- `from_id` (str)
-- `to_id` (str)
-- `relation` (str)
-- `weight` (float)
+Need help getting compliant? **[Book a free 15-min diagnostic →](https://cal.com/csoai/august-audit)**
 
-### `semantic_node_search`
-Search for nodes using semantic similarity matching against stored embeddings.
+## 🏢 Enterprise
 
-**Parameters:**
-- `query` (str)
-- `top_k` (int)
+Need custom development, SLA guarantees, or white-label deployment?
 
-### `trace_compliance_chain`
-Trace the compliance chain from a requirement through controls to evidence.
+- **Pro:** $99/mo — Full MCP suite + EU AI Act tracking
+- **Enterprise:** $499/mo — Custom dev + SLA + Dedicated support
 
-**Parameters:**
-- `start_node_id` (str)
-- `max_depth` (int)
+[View Pricing →](https://councilof.ai/pricing) | [Contact Sales →](mailto:sales@csoai.org)
 
-### `find_gaps`
-Find gaps in the knowledge graph where expected relationships or nodes are missing.
+## 🤝 Part of the MEOK Ecosystem
 
-**Parameters:**
-- `required_frameworks` (str)
+This server is part of the **[MEOK AI Labs](https://meok.ai)** ecosystem — 300+ MCP servers for sovereign AI governance.
 
+| Domain | Purpose |
+|--------|---------|
+| [councilof.ai](https://councilof.ai) | EU AI Act compliance marketplace |
+| [safetyof.ai](https://safetyof.ai) | AI safety & monitoring |
+| [meok.ai](https://meok.ai) | Sovereign AI platform |
+| [cobolbridge.ai](https://cobolbridge.ai) | Legacy modernization |
 
-## Authentication
+## 📜 License
 
-Free tier: 15 calls/day. Upgrade at [meok.ai/pricing](https://meok.ai/pricing) for unlimited access.
+MIT © [CSOAI-ORG](https://github.com/CSOAI-ORG)
 
-## Links
+---
 
-- **Website**: [meok.ai](https://meok.ai)
-- **GitHub**: [CSOAI-ORG/vector-knowledge-graph-mcp](https://github.com/CSOAI-ORG/vector-knowledge-graph-mcp)
-- **PyPI**: [pypi.org/project/vector-knowledge-graph-mcp](https://pypi.org/project/vector-knowledge-graph-mcp/)
-
-## License
-
-MIT — MEOK AI Labs
+<p align="center">
+  <sub>Built with 💜 by <a href="https://meok.ai">MEOK AI Labs</a> · UK Companies House 16939677</sub>
+</p>
