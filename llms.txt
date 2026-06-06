@@ -1,0 +1,32 @@
+# Vector Knowledge Graph MCP
+
+> MEOK AI Labs MCP Server
+
+`vector-knowledge-graph-mcp` is a Model Context Protocol (MCP) server by MEOK AI Labs.
+
+## Install
+
+```bash
+pip install vector-knowledge-graph-mcp
+```
+
+Or run without installing:
+
+```bash
+uvx vector-knowledge-graph-mcp
+```
+
+## Tools
+
+- `add_node` — Add a node to the knowledge graph with properties, embeddings, and metadata.
+- `add_edge` — Create a directed edge between two nodes with relationship type and weight.
+- `semantic_node_search` — Search for nodes using semantic similarity matching against stored embeddings.
+- `trace_compliance_chain` — Trace the compliance chain from a requirement through controls to evidence.
+- `find_gaps` — Find gaps in the knowledge graph where expected relationships or nodes are missing.
+
+## Links
+
+- Source: https://github.com/CSOAI-ORG/vector-knowledge-graph-mcp
+- PyPI: https://pypi.org/project/vector-knowledge-graph-mcp/
+- MEOK AI Labs: https://meok.ai
+- Council of AI: https://councilof.ai
