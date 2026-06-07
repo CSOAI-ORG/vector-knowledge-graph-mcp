@@ -1,0 +1,28 @@
+{
+  "name": "vector-knowledge-graph-mcp",
+  "title": "Vector Knowledge Graph Mcp",
+  "description": "AI-powered vector knowledge graph MCP server for agents. Supports add node, add edge, semantic node search. By MEOK AI Labs.",
+  "version": "1.0.4",
+  "homepage": "https://meok.ai",
+  "license": "MIT",
+  "transport": {
+    "type": "stdio"
+  },
+  "tools": [
+    {
+      "name": "add_node"
+    },
+    {
+      "name": "add_edge"
+    },
+    {
+      "name": "semantic_node_search"
+    },
+    {
+      "name": "trace_compliance_chain"
+    },
+    {
+      "name": "find_gaps"
+    }
+  ]
+}

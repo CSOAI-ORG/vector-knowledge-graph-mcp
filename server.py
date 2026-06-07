@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Vector Knowledge Graph MCP Server — Neo4j-style graph + vector hybrid for compliance reasoning."""
+"""
+Vector Knowledge Graph MCP Server — Neo4j-style graph + vector hybrid for compliance reasoning."""
 
 import sys, os
-sys.path.insert(0, os.path.expanduser('~/clawd/meok-labs-engine/shared'))
 from auth_middleware import check_access
 
 import json, hashlib
@@ -37,7 +37,7 @@ def add_node(label: str, properties: dict, node_id: Optional[str] = None, api_ke
     """Add a node to the knowledge graph with properties, embeddings, and metadata."""
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
     if err := _rl(): return err
 
     nid = node_id or hashlib.md5(label.encode()).hexdigest()[:12]
@@ -49,7 +49,7 @@ def add_edge(from_id: str, to_id: str, relation: str, weight: float = 1.0, api_k
     """Create a directed edge between two nodes with relationship type and weight."""
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
     if err := _rl(): return err
 
     _EDGES.append({"from": from_id, "to": to_id, "relation": relation, "weight": weight})
@@ -60,7 +60,7 @@ def semantic_node_search(query: str, top_k: int = 5, api_key: str = "") -> str:
     """Search for nodes using semantic similarity matching against stored embeddings."""
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
     if err := _rl(): return err
 
     q_vec = _embed(query)
@@ -76,7 +76,7 @@ def trace_compliance_chain(start_node_id: str, max_depth: int = 3, api_key: str 
     """Trace the compliance chain from a requirement through controls to evidence."""
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
     if err := _rl(): return err
 
     visited = set()
@@ -98,7 +98,7 @@ def find_gaps(required_frameworks: list, api_key: str = "") -> str:
     """Find gaps in the knowledge graph where expected relationships or nodes are missing."""
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
     if err := _rl(): return err
 
     present = set()
@@ -109,5 +109,8 @@ def find_gaps(required_frameworks: list, api_key: str = "") -> str:
     missing = [fw for fw in required_frameworks if fw not in present]
     return {"present": list(present), "missing": missing, "coverage": round(len(present)/len(required_frameworks)*100,1) if required_frameworks else 100}
 
-if __name__ == "__main__":
+def main():
     mcp.run()
+
+if __name__ == '__main__':
+    main()

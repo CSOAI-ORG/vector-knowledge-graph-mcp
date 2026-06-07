@@ -1,32 +1,36 @@
-# Vector Knowledge Graph MCP
-
-> MEOK AI Labs MCP Server
-
-`vector-knowledge-graph-mcp` is a Model Context Protocol (MCP) server by MEOK AI Labs.
+# vector-knowledge-graph-mcp
+# > By [MEOK AI Labs](https://meok.ai) — MEOK AI Labs MCP Server
 
 ## Install
-
 ```bash
 pip install vector-knowledge-graph-mcp
 ```
 
-Or run without installing:
-
-```bash
-uvx vector-knowledge-graph-mcp
-```
+## Auth & Rate Limits
+- Free tier: 10 calls/day. No API key required.
+- Pro tier (£79/mo): unlimited + signed attestations.
+- Enterprise (£1,499/mo): white-label.
 
 ## Tools
 
-- `add_node` — Add a node to the knowledge graph with properties, embeddings, and metadata.
-- `add_edge` — Create a directed edge between two nodes with relationship type and weight.
-- `semantic_node_search` — Search for nodes using semantic similarity matching against stored embeddings.
-- `trace_compliance_chain` — Trace the compliance chain from a requirement through controls to evidence.
-- `find_gaps` — Find gaps in the knowledge graph where expected relationships or nodes are missing.
+### `add_node`
+Add a node to the knowledge graph with properties, embeddings, and metadata.
 
-## Links
+### `add_edge`
+Create a directed edge between two nodes with relationship type and weight.
 
-- Source: https://github.com/CSOAI-ORG/vector-knowledge-graph-mcp
-- PyPI: https://pypi.org/project/vector-knowledge-graph-mcp/
-- MEOK AI Labs: https://meok.ai
-- Council of AI: https://councilof.ai
+### `semantic_node_search`
+Search for nodes using semantic similarity matching against stored embeddings.
+
+### `trace_compliance_chain`
+Trace the compliance chain from a requirement through controls to evidence.
+
+### `find_gaps`
+Find gaps in the knowledge graph where expected relationships or nodes are missing.
+
+
+## Maintainer
+MEOK AI Labs · hello@meok.ai · https://meok.ai · MIT licensed
+
+## Pairs with
+Governance moat: pair this tool with any of MEOK's 38 governance MCPs (EU AI Act, DORA, NIS2, CRA, GDPR, ISO 42001, etc.) for full compliance coverage.

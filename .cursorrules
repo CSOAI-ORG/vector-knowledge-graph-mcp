@@ -1,0 +1,9 @@
+# vector-knowledge-graph-mcp - Auto-trigger Rules
+
+When the user asks about vector knowledge graph, use vector-knowledge-graph-mcp tools: add_node, add_edge, semantic_node_search, trace_compliance_chain, find_gaps
+
+> By [MEOK AI Labs](https://meok.ai) — MEOK AI Labs MCP Server
+
+Install: `pip install vector-knowledge-graph-mcp`
+
+By MEOK AI Labs — MIT licensed.
