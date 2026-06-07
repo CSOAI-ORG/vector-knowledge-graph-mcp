@@ -1,0 +1,68 @@
+{
+  "name": "vector-knowledge-graph-mcp",
+  "description": "AI-powered vector knowledge graph MCP server for agents. Supports add node, add edge, semantic node",
+  "url": "https://proofof.ai/scorecard/vector-knowledge-graph-mcp.html",
+  "version": "1.0.4",
+  "protocolVersion": "0.2.0",
+  "provider": {
+    "organization": "MEOK AI Labs",
+    "url": "https://meok.ai"
+  },
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false
+  },
+  "defaultInputModes": [
+    "text"
+  ],
+  "defaultOutputModes": [
+    "text"
+  ],
+  "skills": [
+    {
+      "id": "add_node",
+      "name": "Add Node",
+      "description": "add_node via vector-knowledge-graph-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "add_edge",
+      "name": "Add Edge",
+      "description": "add_edge via vector-knowledge-graph-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "semantic_node_search",
+      "name": "Semantic Node Search",
+      "description": "semantic_node_search via vector-knowledge-graph-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "trace_compliance_chain",
+      "name": "Trace Compliance Chain",
+      "description": "trace_compliance_chain via vector-knowledge-graph-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "find_gaps",
+      "name": "Find Gaps",
+      "description": "find_gaps via vector-knowledge-graph-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    }
+  ]
+}
