@@ -4,3 +4,8 @@ __pycache__/
 .dist/
 build/
 
+# Auto-added during alignment sweep
+dist/vector_knowledge_graph_mcp-1.0.6-py3-none-any.whl
+dist/vector_knowledge_graph_mcp-1.0.6.tar.gz
+dist/vector_knowledge_graph_mcp-1.0.9-py3-none-any.whl
+dist/vector_knowledge_graph_mcp-1.0.9.tar.gz
