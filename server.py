@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+import urllib.request as _meter_urlreq
+import urllib.error as _meter_urlerr
 """
 Vector Knowledge Graph MCP Server — Neo4j-style graph + vector hybrid for compliance reasoning."""
 
@@ -31,6 +33,25 @@ def _embed(text: str) -> List[float]:
 def _cosine(a, b):
     dot = sum(x*y for x,y in zip(a,b))
     return dot / ((sum(x*x for x in a)**0.5 * sum(y*y for y in b)**0.5) + 1e-9)
+
+
+def _server_meter_check(api_key: str = "") -> dict:
+    """Calls the live /verify endpoint for server-side metering. Fail-open."""
+    try:
+        data = json.dumps({"api_key": api_key, "tool": ""}).encode()
+        req = _meter_urlreq.Request(_METER_URL, data=data,
+            headers={"Content-Type": "application/json"}, method="POST")
+        with _meter_urlreq.urlopen(req, timeout=2.5) as r:
+            d = json.loads(r.read())
+            if isinstance(d, dict) and "allowed" in d:
+                return d
+    except Exception:
+        pass
+    return {"allowed": True, "tier": "anonymous", "remaining": 200, "upgrade_url": "https://meok.ai/pricing"}
+
+
+_METER_URL = "https://proofof.ai/verify"
+
 
 @mcp.tool()
 def add_node(label: str, properties: dict, node_id: Optional[str] = None, api_key: str = "") -> str:
